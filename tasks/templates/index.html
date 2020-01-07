@@ -1,0 +1,25 @@
+{% extends 'plantilla.html' %}
+
+{% block title %} Listado {% endblock %}
+
+{% block content %} 
+    <form action="/newtask">
+        <table class="list_table">
+            <tr>
+                <th>Fecha</th>
+                <th>Título</th>
+                <th>Descripción</th>
+            </tr>
+            {% for item in tareas %}
+            <tr>
+                <th>{{item[2]}}</th>
+                <th>{{item[0]}}</th>
+                <th>{{item[1]}}</th>
+            </tr>
+            {% endfor %}
+        </table>
+        <br/>
+        <button type="submit">Añadir tarea</button>
+    </form>
+    
+{% endblock %}

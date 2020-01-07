@@ -1,0 +1,12 @@
+{% extends 'plantilla.html' %}
+
+{% block title %} Formulario {% endblock %}
+
+{% block content %} 
+    <form action="/newtask" method="post">
+        <input type="text" name="title" placeholder="Título">
+        <input type="text" name="desc" placeholder="Descripción">
+        <input type="date" name="date"><br/>
+        <button type="submit">Enviar</button>
+    </form>
+{% endblock %}
