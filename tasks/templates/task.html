@@ -3,10 +3,39 @@
 {% block title %} Formulario {% endblock %}
 
 {% block content %} 
+    <h1>Nueva tarea</h1>
     <form action="/newtask" method="post">
-        <input type="text" name="title" placeholder="Título">
-        <input type="text" name="desc" placeholder="Descripción">
-        <input type="date" name="date"><br/>
-        <button type="submit">Enviar</button>
+        {{ form.hidden_tag() }}
+        <div class="row">
+            <div class ="six columns">
+                {{ form.title(class="u-full-width", placeholder="Título") }}
+                <!--input class="u-full-width" type="text" name="title" placeholder="Título"-->
+                {% if form.title.errors %}
+                    {% for error in form.title.errors %}
+                    <p class='field-error'>{{ error }}</p>
+                    {% endfor %}
+                {%  endif%}    
+            </div>
+            <div class ="six columns">
+                {{ form.date(class="u-full-width", type="date") }}
+                <!--input class="u-full-width" type="date" name="date"-->
+                {% if form.date.errors %}
+                    {% for error in form.date.errors %}
+                    <p class='field-error'>{{ error }}</p>
+                    {% endfor %}
+                {%  endif %}  
+            </div>
+        </div>
+        <div class="row">
+            {{ form.description(class="u-full-width", placeholder="Descripción") }}
+            <!--textarea class="u-full-width" type="text" name="desc" placeholder="Descripción"></textarea-->
+            {% if form.description.errors %}
+                    {% for error in form.description.errors %}
+                    <p class='field-error'>{{ error }}</p>
+                    {% endfor %}
+                {%  endif%}  
+        </div>
+        {{ form.submit(class="button-primary u-pull-right") }}
+        <!--button class="button-primary u-pull-right" type="submit">Añadir tarea</button--->
     </form>
 {% endblock %}

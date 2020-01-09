@@ -1,25 +1,22 @@
 {% extends 'plantilla.html' %}
 
-{% block title %} Listado {% endblock %}
+{% block title %} Lista de tareas {% endblock %}
 
 {% block content %} 
-    <form action="/newtask">
-        <table class="list_table">
-            <tr>
-                <th>Fecha</th>
-                <th>Título</th>
-                <th>Descripción</th>
-            </tr>
-            {% for item in tareas %}
-            <tr>
-                <th>{{item[2]}}</th>
-                <th>{{item[0]}}</th>
-                <th>{{item[1]}}</th>
-            </tr>
-            {% endfor %}
-        </table>
-        <br/>
-        <button type="submit">Añadir tarea</button>
-    </form>
-    
+    <h1>Mis tareas</h1>
+    <table class="u-full-width">
+        <tr>
+            <th>Fecha</th>
+            <th>Título</th>
+            <th>Descripción</th>
+        </tr>
+        {% for item in tareas %}
+        <tr>
+            <td>{{item[2]}}</td>
+            <td>{{item[0]}}</td>
+            <td>{{item[1]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a class="button button-primary u-pull-right" href="/newtask">Nueva tarea</a>
 {% endblock %}
