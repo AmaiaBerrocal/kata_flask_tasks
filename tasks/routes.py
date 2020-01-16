@@ -36,7 +36,7 @@ def index():
     registros = dbQuery('SELECT titulo, descripcion, fecha, id FROM tareas;')
     
     if registros:
-        if isinstance(registros, tuple):
+        if isinstance(registros, dict):
             registros = [registros]
     else:
         registros = []
